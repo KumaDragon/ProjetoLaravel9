@@ -17,5 +17,5 @@ use App\Http\Controllers\UsersController;
 Route::get('/', function () {return view('welcome');});
 
 Route::get('/users', [UsersController::class,'index'])->name('users.index');
-
+  //a rota chama a controladora, que chama a ação   //users.index é igual a users/index
 Route::get('/users/{id}', [UsersController::class,'show'])->name('users.show');
