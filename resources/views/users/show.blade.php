@@ -1,8 +1,8 @@
 @extends('layout.app')
-@section('title','Listagem')
+@section('title','Detalhes')
 @section('content')
 
-<h1> Listagem de um usuário </h1>
+<h1> Detalhes de usuário </h1>
 <ul>
 <li>{{$user->name}} </li>
 <li>{{$user->email}}</li>

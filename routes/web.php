@@ -15,7 +15,10 @@ use App\Http\Controllers\UsersController;
 */
 
 Route::get('/', function () {return view('welcome');});
-
 Route::get('/users', [UsersController::class,'index'])->name('users.index');
+  //rota usada pra cadastrar, usando formulários
+Route::get('/users/create', [UsersController::class,'create'])->name('users.create');
   //a rota chama a controladora, que chama a ação   //users.index é igual a users/index
 Route::get('/users/{id}', [UsersController::class,'show'])->name('users.show');
+  //rota usada somenta para guardar informações no bd, store
+Route::post('/users', [UsersController::class,'store'])->name('users.store');
