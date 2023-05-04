@@ -14,9 +14,4 @@
     (<a href="{{route('users.index')}}"> Voltar </a>)
 
 
-
-
-
-
-
 @endsection

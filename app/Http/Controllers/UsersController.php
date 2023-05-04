@@ -30,10 +30,19 @@ class UsersController extends Controller
     }
     public function store(Request $request)
     {
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->save();
+        //User::create($request->all());
+
+        //tem essas duas formas de fazer, concatenando, e essa de cima ai mais fácil
+
+        //$user = new User;
+        //$user->name = $request->name;
+        //$user->email = $request->email;
+        //$user->password = $request->password;
+        //$user->save();
+
+        $data = $request->all();
+        $data['password'] = bcrypt($request->password);
+        User::create($data);
+        return redirect()->route('users.index');
     }
 }

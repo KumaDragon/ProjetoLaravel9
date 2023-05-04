@@ -9,7 +9,6 @@
         {{$user->name}} - 
         <a href="{{ route('users.show', $user->id)}}"> (detalhes) </a>
         </li>
-        (<a href="{{route('users.index')}}"> Voltar </a>)
     @endforeach
     </ul>
 
