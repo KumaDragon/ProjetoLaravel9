@@ -18,7 +18,9 @@ Route::get('/', function () {return view('welcome');});
 Route::get('/users', [UsersController::class,'index'])->name('users.index');
   //rota usada pra cadastrar, usando formulários
 Route::get('/users/create', [UsersController::class,'create'])->name('users.create');
-  //a rota chama a controladora, que chama a ação   //users.index é igual a users/index
+          //há dois parâmetros, divididos por virgula, sendo o primeiro a URL pra procurar, a segunda é a classe, que tem que achar a ação    
+          //a rota chama a controladora, que chama a ação   //users.index é igual a users/index
 Route::get('/users/{id}', [UsersController::class,'show'])->name('users.show');
   //rota usada somenta para guardar informações no bd, store
 Route::post('/users', [UsersController::class,'store'])->name('users.store');
+  /* vai salvar as infos aqui, preparar pra poder mandar pra controladora, pra mandar pro bd */

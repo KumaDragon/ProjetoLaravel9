@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
+use App\Http\Requests\StoreUpdateUserFormRequest;
 
 class UsersController extends Controller
 {
@@ -28,7 +29,7 @@ class UsersController extends Controller
     {
         return view ('users.create');
     }
-    public function store(Request $request)
+    public function store(StoreUpdateUserFormRequest $request)
     {
         //User::create($request->all());
 
