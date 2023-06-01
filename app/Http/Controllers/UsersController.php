@@ -46,4 +46,29 @@ class UsersController extends Controller
         User::create($data);
         return redirect()->route('users.index');
     }
+    public function edit($id)
+    {
+        if(!$user = User::find($id))
+            return redirect()->route('users.index');
+        return view ('users.edit', compact('user'));
+    }
+
+    public function update(StoreUpdateUserFormRequest $request, $id)
+    {
+        if(!$user = User::find($id))
+            return redirect()->route('users.index');
+        $data = $request->only('name','email');
+        if($request->password)
+            $data['password'] = bcrypt($request->password);
+
+        $user->update($data);
+        return redirect()->route('users.index');
+    }
+    public function destroy($id)
+    {
+        if(!$user = User::find($id)) //o ! tem a função de negação no php, então ele transforma a afirmação em negação e vice-versa
+            return redirect()->route('users.index');
+        $user->delete();
+        return redirect()->route('users.index');
+    }
 }
